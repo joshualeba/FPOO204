@@ -2,12 +2,14 @@ import javax.swing.JOptionPane;
 import java.util.*;
 
 public class CajaPopular {
-    public int numeroCuenta;
-    public String titular;
-    public double saldo;
-    public List<String> cuentasExternas;
-    public boolean cuentaEnLinea;
+    // Atributos privados
+    private int numeroCuenta;
+    private String titular;
+    private double saldo;
+    private List<String> cuentasExternas;
+    private boolean cuentaEnLinea;
 
+    // Constructor
     public CajaPopular(int numeroCuenta, String titular, double saldo, boolean cuentaEnLinea) {
         this.numeroCuenta = numeroCuenta;
         this.titular = titular;
@@ -16,6 +18,48 @@ public class CajaPopular {
         this.cuentaEnLinea = cuentaEnLinea;
     }
 
+    // Getters y Setters
+    public int getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(int numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public List<String> getCuentasExternas() {
+        return cuentasExternas;
+    }
+
+    public void setCuentasExternas(List<String> cuentasExternas) {
+        this.cuentasExternas = cuentasExternas;
+    }
+
+    public boolean isCuentaEnLinea() {
+        return cuentaEnLinea;
+    }
+
+    public void setCuentaEnLinea(boolean cuentaEnLinea) {
+        this.cuentaEnLinea = cuentaEnLinea;
+    }
+
+    // Métodos de la clase
     public void consultarDatos() {
         StringBuilder datos = new StringBuilder();
         datos.append("Número de cuenta: ").append(numeroCuenta).append("\n");
@@ -79,7 +123,7 @@ public class CajaPopular {
             if (cuentaExterna == null || cuentaExterna.trim().isEmpty()) {
                 break;
             }
-            cuenta.cuentasExternas.add(cuentaExterna);
+            cuenta.getCuentasExternas().add(cuentaExterna);
         }
 
         while (true) {
