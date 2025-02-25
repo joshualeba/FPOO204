@@ -2,10 +2,12 @@ import javax.swing.JOptionPane;
 import java.util.Random;
 
 public class generadorContrasenas {
-    public static final String MINUSCULAS = "abcdefghijklmnopqrstuvwxyz";
-    public static final String MAYUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String ESPECIALES = "!@#$%^&*()_+";
+    // Atributos encapsulados
+    private static final String MINUSCULAS = "abcdefghijklmnopqrstuvwxyz";
+    private static final String MAYUSCULAS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String ESPECIALES = "!@#$%^&*()_+";
 
+    // Método principal
     public static void main(String[] args) {
         int longitud = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la longitud de la contraseña (8 por defecto):", "8"));
         boolean incluirMayusculas = JOptionPane.showConfirmDialog(null, "¿Incluir mayúsculas?", "Especificaciones", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
@@ -18,10 +20,11 @@ public class generadorContrasenas {
         JOptionPane.showMessageDialog(null, "Fortaleza de la contraseña: " + fortaleza);
     }
 
-    public static String generarContrasena(int longitud, boolean incluirMayusculas, boolean incluirEspeciales) {
-        String caracteres = MINUSCULAS;
-        if (incluirMayusculas) caracteres += MAYUSCULAS;
-        if (incluirEspeciales) caracteres += ESPECIALES;
+    // Método para generar la contraseña
+    private static String generarContrasena(int longitud, boolean incluirMayusculas, boolean incluirEspeciales) {
+        StringBuilder caracteres = new StringBuilder(MINUSCULAS);
+        if (incluirMayusculas) caracteres.append(MAYUSCULAS);
+        if (incluirEspeciales) caracteres.append(ESPECIALES);
 
         Random random = new Random();
         StringBuilder contrasena = new StringBuilder();
@@ -34,7 +37,8 @@ public class generadorContrasenas {
         return contrasena.toString();
     }
 
-    public static String comprobarFortalezaContrasena(String contrasena) {
+    // Método para comprobar la fortaleza de la contraseña
+    private static String comprobarFortalezaContrasena(String contrasena) {
         if (contrasena.length() < 8) return "Débil";
         boolean tieneMayusculas = !contrasena.equals(contrasena.toLowerCase());
         boolean tieneEspeciales = contrasena.matches(".*[!@#$%^&*()_+].*");

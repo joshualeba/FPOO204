@@ -1,18 +1,54 @@
 import javax.swing.JOptionPane;
 
-public class CajaPopular {
-    public int numeroCuenta;
-    public String titular;
-    public int edad;
-    public double saldo;
+public class Main {
+    // Atributos encapsulados
+    private int numeroCuenta;
+    private String titular;
+    private int edad;
+    private double saldo;
 
-    public CajaPopular(int numeroCuenta, String titular, int edad, double saldo) {
+    // Constructor
+    public Main(int numeroCuenta, String titular, int edad, double saldo) {  // Cambia el nombre del constructor
         this.numeroCuenta = numeroCuenta;
         this.titular = titular;
         this.edad = edad;
         this.saldo = saldo;
     }
 
+    // Getters y Setters
+    public int getNumeroCuenta() {
+        return numeroCuenta;
+    }
+
+    public void setNumeroCuenta(int numeroCuenta) {
+        this.numeroCuenta = numeroCuenta;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    // Métodos de la clase
     public void consultarSaldo() {
         JOptionPane.showMessageDialog(null, "Saldo actual: " + saldo);
     }
@@ -46,7 +82,7 @@ public class CajaPopular {
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del titular:"));
         double saldo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el saldo inicial:"));
 
-        CajaPopular cuenta = new CajaPopular(numeroCuenta, titular, edad, saldo);
+        Main cuenta = new Main(numeroCuenta, titular, edad, saldo);  // Cambia el nombre de la clase aquí
 
         while (true) {
             String[] opciones = {"Consultar Saldo", "Ingresar Efectivo", "Retirar Efectivo", "Depositar a Otra Cuenta", "Salir"};
