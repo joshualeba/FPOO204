@@ -5,7 +5,7 @@ public class Main {
         Spartan jefeMaestro = new Spartan("Rifle de asalto MA5B", 90, "Jefe Maestro", 100);
         Spartan George = new Spartan("Martillo Gravitatorio", 100, "George", 100);
 
-        //Uasr sus metodos
+        //Usar sus metodos
         jefeMaestro.mostrarInfo();
         jefeMaestro.atacar("Elite");
         jefeMaestro.recargarArma(65);
